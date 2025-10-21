@@ -25,7 +25,7 @@ The Vibrant language specification version is displayed in the following fashion
 
 `s` is the current status of the specification, only included in this repository's implementation of the specification
 
-Examples: v1.0:5, v2.5, v3.1:4, v4.0
+Examples: v1.0:1, v2.5, v3.1:4, v4.0
 
 The Vibrant language has specification guideline that updates on every **major** version with the following changes allowed:
 
@@ -71,6 +71,12 @@ This repository contains a **status** for each version of the specification
 You can read the specification for Vibrant [here]()\*. 
 
 *\*// TO DO*
+
+## License
+
+Different parts of this repository make use of third party software. You can find license to these software in a respective `LICENSE.txt` file.
+
+LLVM's license is include in the root directory of this repository and is the license this repository uses for its own source code. 
 
 ## Sources
 
