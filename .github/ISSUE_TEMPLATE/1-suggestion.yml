@@ -25,6 +25,6 @@ body:
         - Specification
         - Implementation
         - Both
-      default: Implementation
+      default: 1
     validations:
       required: true
