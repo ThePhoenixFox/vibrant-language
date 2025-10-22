@@ -19,15 +19,15 @@ Vibrant has these following features:
 
 The Vibrant language specification version is displayed in the following fashion: vM.m:s
 
-`M` is the current major version of the specification, included with every publication
+`M` is the current version of the specification, included with every publication
 
-`m` is the current minor version of the specification, included with every publication
+`m` is the current implementation version of the specification, included with every publication of this repository
 
-`s` is the current status of the specification, only included in this repository's implementation of the specification
+`s` is the current status of the implementation, only included in this repository
 
 Examples: v1.0:1, v2.5, v3.1:4, v4.0
 
-The Vibrant language has specification guideline that updates on every **major** version with the following changes allowed:
+The Vibrant language has specification guideline that updates on every **version** with the following changes allowed:
 
 ### Syntax
 - Change existing syntax
@@ -38,26 +38,22 @@ The Vibrant language has specification guideline that updates on every **major**
 - Add new functions, objects, and libaries to the Standard Libary
 - Deprecate previous functions, objects, and libaries from the Standard Libary
 
-The Vibrant langauge has specification guideline that updates on every **minor** version with the following changes allowed:
+The Vibrant langauge has implemention guideline that updates on every **minor** version. This repository contains a **status** for each version of the implementation.
 
-### Syntax
-- Add new syntax
-- Mark for deprecation existing syntax
-### Standard Libary
-- Add new functions, objects, and libaries to the Standard Libary
-- Mark for deprecation existing functions, objects, and libaries from the Standard Libary
+- 0. Unusable (Template)
+- 1. In development
+- 2. Hotfix\*
+- 3. Hotfix (OS)*
+- 4. Security vulnerability\*\*
+- 5. Security vulnerability (OS)\*\*
+- 10. Feature Completion
+- 11. Feature Completion (OS)
+- 12. Implemention Completion (OS)
+- 20. Implementation Completion
 
-This repository contains a **status** for each version of the specification
+*\* May include security, bug, or undefined behavior*
 
-0. Unusable
-1. In development
-2. Majority of implementation\*
-3. Complete implementation
-4. Hotfix\*\*
-
-*\* Has over **75%** of the specification features*
-
-*\*\* May include security, bug, or undefined behavior*
+*\*\* Retroactive*
 
 ## Build
 
