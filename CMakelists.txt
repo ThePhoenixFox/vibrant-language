@@ -1,2 +1,37 @@
-cmake_minimum_required(VERSION 3.40)
+cmake_minimum_required(VERSION 3.29)
 
+project(
+  VibrantLanguage
+  VERSION 0.1.0
+  LANGUAGES CXX
+)
+
+# Options
+option(VIBRANT_BUILD "Build Vibrant compiler" ON)
+option(VIBRANT_BUILD_TESTS "Build Vibrant compiler tests" OFF)
+set(VIBRANT_COMPILER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/compiler" CACHE PATH "Path to the Vibrant compiler source directory")
+set(VIBRANT_TEST_PATH "${CMAKE_CURRENT_SOURCE_DIR}/tests" CACHE PATH "Path to the Vibrant test directory")
+
+# Hint for buildsystem
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+if(VIBRANT_BUILD)
+  if(EXISTS "${VIBRANT_COMPILER_PATH}/CMakeLists.txt")
+    add_subdirectory("${VIBRANT_COMPILER_PATH}")
+  else()
+    message(FATAL_ERROR "Invalid path to Vibrant compiler: ${VIBRANT_COMPILER_PATH}")
+  endif()
+else()
+  message(STATUS "Skipping building for Vibrant compiler")
+endif()
+
+if(VIBRANT_BUILD_TESTS)
+  if(EXISTS "${VIBRANT_TEST_PATH}/CMakeLists.txt")
+    enable_testing()
+    add_subdirectory("${VIBRANT_TEST_PATH}")
+  else()
+    message(FATAL_ERROR "Invalid path to Vibrant tests: ${VIBRANT_TEST_PATH}")
+  endif()
+else()
+  message(STATUS "Skipping testing for Vibrant compiler")
+endif()
