@@ -59,7 +59,7 @@ The Vibrant langauge has implementation guideline that updates on every **minor*
 
 ## Build
 
-Compiler Requirement
+Compiler Requirement (Taken from LLVM minimums)
 
 | Compiler | Minimum Version |
 |----------|-----------------|
@@ -67,12 +67,13 @@ Compiler Requirement
 | GCC      | 7.4+             |
 | MSVC     | 2019 (16.8+)     |
 
-Minimum  Standard Requirement
+Project Standard Requirement
 
-| Language | Minimum Standard |
-|----------|------------------|
-| C++      | C++17            |
-| C        | C17              |
+| Item     | Required Standard |
+|----------|-------------------|
+| C++      | C++20             |
+| LLVM     | 21.1.0            |
+| CMake    | 3.23              |
 
 1. Clone the repository
 
@@ -89,7 +90,7 @@ cmake ..
 
 4. Build the Vibrant compiler
 ```
--DVIBRANT_BUILD // Builds the Vibrant compiler (Default: ON)
+-DVIBRANT_INSTALL // Builds and installs the Vibrant compiler (Default: ON)
 -DVIBRANT_BUILD_TESTS // Build the tests (TO DO) (Default: OFF)
 -DVIBRANT_COMPILER_PATH // Path to the compiler source files (Default: vibrant/compiler)
 -DVIBRANT_TEST_PATH // Path to the test source files (Default: vibrant/tests)

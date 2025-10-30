@@ -27,8 +27,12 @@ else()
     message(FATAL_ERROR "Unsupported compiler: ${CMAKE_CXX_COMPILER_ID}")
 endif()
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 # Get LLVM
-find_package(LLVM REQUIRED CONFIG)
+find_package(LLVM 21.1.0 REQUIRED CONFIG)
 
 # Report which version of LLVM was found on host
 message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
@@ -43,11 +47,8 @@ llvm_map_components_to_libnames(VIBRANT_LLVM_LIBS
 
 add_executable(VibrantCompiler)
 
-# Standard Minimum
+# Vibrant Compiler executable properties
 set_target_properties(VibrantCompiler PROPERTIES
-  CXX_STANDARD 17
-  CXX_STANDARD_REQUIRED ON
-  CXX_EXTENSIONS OFF
   POSITION_INDEPENDENT_CODE ON
   OUTPUT_NAME "vibrantcompiler"
 )
@@ -101,10 +102,13 @@ target_link_libraries(VibrantCompiler
     ${VIBRANT_LLVM_LIBS}
 )
 
-include(GNUInstallDirs)
-
 # Install
-install(TARGETS VibrantCompiler
-  FILE_SET HEADERS DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
+if(VIBRANT_INSTALL)
+
+  include(GNUInstallDirs)
+
+  install(TARGETS VibrantCompiler
+    FILE_SET HEADERS DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  )
+endif()
